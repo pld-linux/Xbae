@@ -1,17 +1,20 @@
 Summary:	The XbaeMatrix is a Motif-based widget which displays a grid of cells
 Summary(pl):	XbaeMatrix jest motifowym widgetem wy¶wietlaj±cym tabelki
 Name:		Xbae
-Version:	4.9.1
-Release:	3
+Version:	4.50.2
+Release:	1
 License:	BSD-like (Bell Communications Research)
 Group:		X11/Libraries
-Source0:	ftp://ftp.lesstif.org/pub/hungry/lesstif/srcdist/%{name}-%{version}.tar.gz
-# Source0-md5:	d20e2f688cb440a186ecd99e19de9fcf
+Source0:	http://dl.sourceforge.net/xbae/%{name}-%{version}.tar.gz
+# Source0-md5:	f6785c3afc37bd1a5691172d73d1ae81
 Patch0:		%{name}-link.patch
 Patch1:		%{name}-am18.patch
+URL:		http://xbae.sf.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
+# it requires lesstif with motif >= 1.2 implementation
 BuildRequires:	lesstif-devel
+BuildRequires:	motif-devel >= 1.2
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -94,12 +97,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog README NEWS
+%doc AUTHORS COPYING ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/libXbae.so.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%doc FAQ.html doc/*
+%doc doc/*
 %attr(755,root,root) %{_libdir}/libXbae.so
 %{_libdir}/libXbae.la
 %{_includedir}/Xbae
