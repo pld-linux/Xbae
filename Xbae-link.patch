@@ -1,10 +1,41 @@
-diff -urN Xbae-4.9.1/examples/draw/Makefile.am Xbae-4.9.1.new/examples/draw/Makefile.am
---- Xbae-4.9.1/examples/draw/Makefile.am	Mon May 21 21:31:05 2001
-+++ Xbae-4.9.1.new/examples/draw/Makefile.am	Thu Sep 20 18:45:53 2001
-@@ -18,5 +18,5 @@
+--- Xbae-4.50.2/examples/draw/Makefile.am.orig	2002-08-20 18:21:09.000000000 +0200
++++ Xbae-4.50.2/examples/draw/Makefile.am	2003-12-29 17:37:00.292220752 +0100
+@@ -16,5 +16,5 @@
  endif
  
  LDADD=	../../src/libXbae.la \
--        @X_LIBS@ $(XMU) -lXt ${X_PRE_LIBS} -lXext -lX11 ${X_EXTRA_LIBS}
-+        @X_LIBS@ $(XMU) -lXt ${X_PRE_LIBS} -lXext -lX11 ${X_EXTRA_LIBS} -lXpm
+-        $(link_motif) @X_LIBS@ $(XMU) -lXt ${X_PRE_LIBS} -lXext -lX11 ${X_EXTRA_LIBS}
++        $(link_motif) $(XPM_LIB) @X_LIBS@ $(XMU) -lXt ${X_PRE_LIBS} -lXext -lX11 ${X_EXTRA_LIBS}
  endif
+--- Xbae-4.50.2/src/Makefile.am.orig	2002-09-13 21:51:25.000000000 +0200
++++ Xbae-4.50.2/src/Makefile.am	2003-12-29 17:35:22.656063704 +0100
+@@ -21,7 +21,7 @@
+ # doesn't work either since it may introduce a wrong linker path
+ #libXbae_la_LIBADD = @X_LIBS@ -lXt ${X_PRE_LIBS} -lXext -lX11 $(X_EXTRA_LIBS)
+ 
+-libXbae_la_LIBADD = @MOTIF_LIBADD@ @LIBS@ @X_LIBS@ -lXt ${X_PRE_LIBS} -lXext -lX11 ${X_EXTRA_LIBS}
++libXbae_la_LIBADD = @MOTIF_LIBS@ @LIBS@ @X_LIBS@ -lXt ${X_PRE_LIBS} -lXext -lX11 ${X_EXTRA_LIBS}
+ 
+ 
+ libXbae_la_SOURCES = \
+--- Xbae-4.50.2/configure.in.orig	2003-03-12 20:55:48.000000000 +0100
++++ Xbae-4.50.2/configure.in	2003-12-29 17:36:27.704174888 +0100
+@@ -165,8 +165,9 @@
+ dnl
+ if test "x$ac_cv_header_X11_xpm_h" = "xyes" -o "x$ac_cv_header_xpm_h" = "xyes"
+ then
+-       AC_CHECK_LIB(Xpm, XpmLibraryVersion, , , 
++       AC_CHECK_LIB(Xpm, XpmLibraryVersion, [XPM_LIB="-lXpm"], [XPM_LIB=], 
+                     $X_LIBS $X_PRE_LIBS -lX11 $X_EXTRA_LIBS)
++	AC_SUBST(XPM_LIB)
+ 	AM_CONDITIONAL(HaveXpm, test x$ac_cv_lib_Xpm_XpmLibraryVersion = xyes)
+ else
+          AM_CONDITIONAL(HaveXpm, false)
+--- Xbae-4.50.2/scripts/Makefile.am.orig	2001-10-21 16:39:37.000000000 +0200
++++ Xbae-4.50.2/scripts/Makefile.am	2003-12-29 17:26:20.276517928 +0100
+@@ -5,4 +5,4 @@
+ MAINTAINERCLEANFILES=Xbae.spec
+ CONFIG_CLEAN_FILES =  Xbae.spec
+ 
+-DIST_COMMON = Xbae.spec.in
++EXTRA_DIST = Xbae.spec.in
