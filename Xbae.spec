@@ -1,12 +1,12 @@
 Summary:	The XbaeMatrix is a Motif-based widget which displays a grid of cells
 Summary(pl):	XbaeMatrix jest motifowym widgetem wy¶wietlaj±cym tabelki
 Name:		Xbae
-Version:	4.50.91
+Version:	4.50.95
 Release:	1
 License:	BSD-like (Bell Communications Research)
 Group:		X11/Libraries
 Source0:	http://dl.sourceforge.net/xbae/%{name}-%{version}.tar.gz
-# Source0-md5:	7580353e86ca452b481608b67586fc3c
+# Source0-md5:	1b4a0666dc9b574b3be5675110906699
 Patch0:		%{name}-link.patch
 URL:		http://xbae.sf.net/
 BuildRequires:	autoconf
