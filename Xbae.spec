@@ -12,9 +12,8 @@ Patch1:		%{name}-am18.patch
 URL:		http://xbae.sf.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
-# it requires lesstif with motif >= 1.2 implementation
-BuildRequires:	lesstif-devel
 BuildRequires:	motif-devel >= 1.2
+BuildRequires:	%{_aclocaldir}/ac_find_motif.m4
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -111,4 +110,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files static
 %defattr(644,root,root,755)
-%attr(644,root,root) %{_libdir}/libXbae.a
+%{_libdir}/libXbae.a
