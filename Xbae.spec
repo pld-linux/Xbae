@@ -1,9 +1,9 @@
 Summary:	The XbaeMatrix is a Motif-based widget which displays a grid of cells
 Summary(pl):	XbaeMatrix jest motifowym widgetem wy¶wietlaj±cym tabelki
-Copyright:	Bell Communications Research (distributable)
 Name:		Xbae
 Version:	4.9.1
 Release:	1
+License:	BSD-like (Bell Communications Research)
 Group:		X11/Libraries
 Group(de):	X11/Libraries
 Group(es):	X11/Bibliotecas
@@ -18,7 +18,7 @@ BuildRequires:	lesstif-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
-BuildRequires:	lynx
+BuildRequires:	man2html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -44,7 +44,6 @@ tak¿e bitmapê (bez mo¿liwo¶ci edycji).
 %package devel
 Summary:	XbaeMatrix header files and development documentation
 Summary(pl):	Pliki nag³ówkowe i dokumentacja XbaeMatrix
-License:	LGPL
 Group:		X11/Development/Libraries
 Group(de):	X11/Entwicklung/Libraries
 Group(es):	X11/Desarrollo/Bibliotecas
@@ -64,7 +63,6 @@ Pliki nag³ówkowe i dokumentacja programisty do XbaeMatrix.
 %package static
 Summary:	XbaeMatrix static library
 Summary(pl):	Biblioteki statyczne XbaeMatrix
-License:	LGPL
 Group:		X11/Development/Libraries
 Group(de):	X11/Entwicklung/Libraries
 Group(es):	X11/Desarrollo/Bibliotecas
@@ -106,11 +104,11 @@ install ac_find_*.m4 $RPM_BUILD_ROOT%{_aclocaldir}
 
 gzip -9nf AUTHORS ChangeLog README FAQ.html NEWS doc/*.html
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
-
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post   -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
