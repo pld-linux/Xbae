@@ -103,8 +103,6 @@ install -d $RPM_BUILD_ROOT%{_aclocaldir}
 	DESTDIR=$RPM_BUILD_ROOT \
 	htmldir=/htmldoc
 
-mv -f $RPM_BUILD_ROOT/htmldoc
-
 # workaround - configure decides not to install *.m4 if aclocaldir is not writable
 install ac_find_*.m4 $RPM_BUILD_ROOT%{_aclocaldir}
 
