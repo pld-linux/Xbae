@@ -87,8 +87,6 @@ install ac_find_*.m4 $RPM_BUILD_ROOT%{_aclocaldir}
 
 rm -f doc/Makefile* doc/images/Makefile*
 
-gzip -9nf AUTHORS ChangeLog README NEWS
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -97,7 +95,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc {AUTHORS,ChangeLog,README,NEWS}.gz
+%doc AUTHORS ChangeLog README NEWS
 %attr(755,root,root) %{_libdir}/libXbae.so.*.*
 
 %files devel
