@@ -20,11 +20,3 @@
  	AM_CONDITIONAL(HaveXpm, test x$ac_cv_lib_Xpm_XpmLibraryVersion = xyes)
  else
           AM_CONDITIONAL(HaveXpm, false)
---- Xbae-4.50.2/scripts/Makefile.am.orig	2001-10-21 16:39:37.000000000 +0200
-+++ Xbae-4.50.2/scripts/Makefile.am	2003-12-29 17:26:20.276517928 +0100
-@@ -5,4 +5,4 @@
- MAINTAINERCLEANFILES=Xbae.spec
- CONFIG_CLEAN_FILES =  Xbae.spec
- 
--DIST_COMMON = Xbae.spec.in
-+EXTRA_DIST = Xbae.spec.in
