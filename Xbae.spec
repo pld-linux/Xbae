@@ -106,6 +106,9 @@ install -d $RPM_BUILD_ROOT%{_aclocaldir}
 # workaround - configure decides not to install *.m4 if aclocaldir is not writable
 install ac_find_*.m4 $RPM_BUILD_ROOT%{_aclocaldir}
 
+mv -f $RPM_BUILD_ROOT/htmldoc/* doc
+rm -f doc/Makefile* doc/images/Makefile*
+
 gzip -9nf AUTHORS ChangeLog README NEWS
 
 %clean
@@ -121,7 +124,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc FAQ.html htmldoc
+%doc FAQ.html doc/*
 %attr(755,root,root) %{_libdir}/libXbae.so
 %attr(755,root,root) %{_libdir}/libXbae.la
 %{_includedir}/Xbae
