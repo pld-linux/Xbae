@@ -25,7 +25,6 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_mandir		%{_prefix}/man
 
 %description
-
 The XbaeMatrix is a Motif-based widget which displays a grid of cells
 in the same manner as a spreadsheet. The cell array is scrollable,
 editable, and otherwise reasonably configurable in appearance. Each
@@ -91,18 +90,25 @@ automake -a -c
 %configure \
 	--enable-shared \
 	--enable-static \
-	--with-editres
+	--with-editres \
+	--with-x-includes=/usr/X11R6/include
+
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_aclocaldir}
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	htmldir=/htmldoc
 
-install -d $RPM_BUILD_ROOT%{_aclocaldir}
+mv -f $RPM_BUILD_ROOT/htmldoc
+
+# workaround - configure decides not to install *.m4 if aclocaldir is not writable
 install ac_find_*.m4 $RPM_BUILD_ROOT%{_aclocaldir}
 
-gzip -9nf AUTHORS ChangeLog README FAQ.html NEWS doc/*.html
+gzip -9nf AUTHORS ChangeLog README NEWS
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -112,11 +118,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc {AUTHORS,ChangeLog,README,NEWS}.gz
 %attr(755,root,root) %{_libdir}/libXbae.so.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%doc {AUTHORS,ChangeLog,README,FAQ.html,NEWS}.gz doc/*.html.gz doc/images/*.png
+%doc FAQ.html htmldoc
 %attr(755,root,root) %{_libdir}/libXbae.so
 %attr(755,root,root) %{_libdir}/libXbae.la
 %{_includedir}/Xbae
