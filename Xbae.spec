@@ -103,7 +103,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc FAQ.html doc/*
 %attr(755,root,root) %{_libdir}/libXbae.so
-%attr(755,root,root) %{_libdir}/libXbae.la
+%{_libdir}/libXbae.la
 %{_includedir}/Xbae
 %{_aclocaldir}/ac_find_xbae.m4
 %{_mandir}/man3/*
