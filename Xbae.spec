@@ -1,14 +1,13 @@
 Summary:	The XbaeMatrix is a Motif-based widget which displays a grid of cells
 Summary(pl):	XbaeMatrix jest motifowym widgetem wy¶wietlaj±cym tabelki
 Name:		Xbae
-Version:	4.50.5
+Version:	4.50.91
 Release:	1
 License:	BSD-like (Bell Communications Research)
 Group:		X11/Libraries
 Source0:	http://dl.sourceforge.net/xbae/%{name}-%{version}.tar.gz
-# Source0-md5:	70281c2a34225da1d409af7fe60128ba
+# Source0-md5:	7580353e86ca452b481608b67586fc3c
 Patch0:		%{name}-link.patch
-Patch1:		%{name}-am18.patch
 URL:		http://xbae.sf.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -37,8 +36,8 @@ tak¿e bitmapê (bez mo¿liwo¶ci edycji).
 Summary:	XbaeMatrix header files and development documentation
 Summary(pl):	Pliki nag³ówkowe i dokumentacja XbaeMatrix
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
-Requires:	motif-devel >= 1.2
+Requires:	%{name} = %{version}-%{release}
+Requires:	motif-devel >= 2.0
 
 %description devel
 XbaeMatrix header files and development documentation.
@@ -50,7 +49,7 @@ Pliki nag³ówkowe i dokumentacja programisty do XbaeMatrix.
 Summary:	XbaeMatrix static library
 Summary(pl):	Biblioteki statyczne XbaeMatrix
 Group:		X11/Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 XbaeMatrix static library.
@@ -61,7 +60,6 @@ Biblioteki statyczne XbaeMatrix.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__libtoolize}
