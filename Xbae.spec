@@ -82,7 +82,8 @@ Biblioteki statyczne XbaeMatrix.
 %patch0 -p1
 
 %build
-libtoolize -c -f
+rm -f missing
+libtoolize --copy --force
 aclocal
 autoconf
 automake -a -c
