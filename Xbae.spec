@@ -100,13 +100,13 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_aclocaldir}
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
+	DESTDIR=$RPM_BUILD_ROOT
 	htmldir=/htmldoc
 
 # workaround - configure decides not to install *.m4 if aclocaldir is not writable
 install ac_find_*.m4 $RPM_BUILD_ROOT%{_aclocaldir}
 
-mv -f $RPM_BUILD_ROOT/htmldoc/* doc
+# mv -f $RPM_BUILD_ROOT/htmldoc/* doc <= what it was supposed to do?
 rm -f doc/Makefile* doc/images/Makefile*
 
 gzip -9nf AUTHORS ChangeLog README NEWS
