@@ -1,0 +1,10 @@
+diff -urN Xbae-4.9.1/examples/draw/Makefile.am Xbae-4.9.1.new/examples/draw/Makefile.am
+--- Xbae-4.9.1/examples/draw/Makefile.am	Mon May 21 21:31:05 2001
++++ Xbae-4.9.1.new/examples/draw/Makefile.am	Thu Sep 20 18:45:53 2001
+@@ -18,5 +18,5 @@
+ endif
+ 
+ LDADD=	../../src/libXbae.la \
+-        @X_LIBS@ $(XMU) -lXt ${X_PRE_LIBS} -lXext -lX11 ${X_EXTRA_LIBS}
++        @X_LIBS@ $(XMU) -lXt ${X_PRE_LIBS} -lXext -lX11 ${X_EXTRA_LIBS} -lXpm
+ endif
