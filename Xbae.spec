@@ -2,20 +2,18 @@ Summary:	The XbaeMatrix is a Motif-based widget which displays a grid of cells
 Summary(pl):	XbaeMatrix jest motifowym widgetem wy¶wietlaj±cym tabelki
 Name:		Xbae
 Version:	4.9.1
-Release:	2
+Release:	3
 License:	BSD-like (Bell Communications Research)
 Group:		X11/Libraries
 Source0:	ftp://ftp.lesstif.org/pub/hungry/lesstif/srcdist/%{name}-%{version}.tar.gz
 # Source0-md5:	d20e2f688cb440a186ecd99e19de9fcf
 Patch0:		%{name}-link.patch
+Patch1:		%{name}-am18.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	lesstif-devel
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
 
 %description
 The XbaeMatrix is a Motif-based widget which displays a grid of cells
@@ -60,9 +58,9 @@ Biblioteki statyczne XbaeMatrix.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
-rm -f missing
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
@@ -80,7 +78,8 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_aclocaldir}
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	mandir=%{_mandir}
 
 # workaround - configure decides not to install *.m4 if aclocaldir is not writable
 install ac_find_*.m4 $RPM_BUILD_ROOT%{_aclocaldir}
