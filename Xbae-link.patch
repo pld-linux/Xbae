@@ -7,17 +7,6 @@
 -        $(link_motif) @X_LIBS@ $(XMU) -lXt ${X_PRE_LIBS} -lXext -lX11 ${X_EXTRA_LIBS}
 +        $(link_motif) $(XPM_LIB) @X_LIBS@ $(XMU) -lXt ${X_PRE_LIBS} -lXext -lX11 ${X_EXTRA_LIBS}
  endif
---- Xbae-4.50.2/src/Makefile.am.orig	2002-09-13 21:51:25.000000000 +0200
-+++ Xbae-4.50.2/src/Makefile.am	2003-12-29 17:35:22.656063704 +0100
-@@ -21,7 +21,7 @@
- # doesn't work either since it may introduce a wrong linker path
- #libXbae_la_LIBADD = @X_LIBS@ -lXt ${X_PRE_LIBS} -lXext -lX11 $(X_EXTRA_LIBS)
- 
--libXbae_la_LIBADD = @MOTIF_LIBADD@ @LIBS@ @X_LIBS@ -lXt ${X_PRE_LIBS} -lXext -lX11 ${X_EXTRA_LIBS}
-+libXbae_la_LIBADD = @MOTIF_LIBS@ @LIBS@ @X_LIBS@ -lXt ${X_PRE_LIBS} -lXext -lX11 ${X_EXTRA_LIBS}
- 
- 
- libXbae_la_SOURCES = \
 --- Xbae-4.50.2/configure.in.orig	2003-03-12 20:55:48.000000000 +0100
 +++ Xbae-4.50.2/configure.in	2003-12-29 17:36:27.704174888 +0100
 @@ -165,8 +165,9 @@
