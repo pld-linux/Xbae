@@ -38,6 +38,7 @@ Summary:	XbaeMatrix header files and development documentation
 Summary(pl):	Pliki nag³ówkowe i dokumentacja XbaeMatrix
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
+Requires:	motif-devel >= 1.2
 
 %description devel
 XbaeMatrix header files and development documentation.
