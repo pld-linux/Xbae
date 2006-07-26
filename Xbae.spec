@@ -8,12 +8,12 @@ Group:		X11/Libraries
 Source0:	http://dl.sourceforge.net/xbae/%{name}-%{version}.tar.gz
 # Source0-md5:	f5518adff4cf031fd429c7f47bc0b49d
 Patch0:		%{name}-link.patch
-URL:		http://xbae.sf.net/
+URL:		http://xbae.sourceforge.net/
+BuildRequires:	%{_aclocaldir}/ac_find_motif.m4
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	motif-devel >= 2.0
-BuildRequires:	%{_aclocaldir}/ac_find_motif.m4
 BuildRequires:	libtool
+BuildRequires:	motif-devel >= 2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
