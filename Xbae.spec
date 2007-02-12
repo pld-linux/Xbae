@@ -1,5 +1,5 @@
 Summary:	The XbaeMatrix is a Motif-based widget which displays a grid of cells
-Summary(pl):	XbaeMatrix jest motifowym widgetem wy∂wietlaj±cym tabelki
+Summary(pl.UTF-8):   XbaeMatrix jest motifowym widgetem wy≈õwietlajƒÖcym tabelki
 Name:		Xbae
 Version:	4.50.97
 Release:	1
@@ -26,15 +26,15 @@ XmTextField widgets, but is actually implemented with a single
 XmTextField. This means a big performance improvement due to less
 overhead.
 
-%description -l pl
-XbaeMatrix jest motifowym widgetem wy∂wietlaj±cym tabelki z≥oøone z
-pÛl w sposÛb podobny do arkuszy kalkulacyjnych. TabelÍ moøna przewijaÊ
-i poddawaÊ edycji. Kaøde pole zazwyczaj wy∂wietla tekst, ale moøe
-takøe bitmapÍ (bez moøliwo∂ci edycji).
+%description -l pl.UTF-8
+XbaeMatrix jest motifowym widgetem wy≈õwietlajƒÖcym tabelki z≈Ço≈ºone z
+p√≥l w spos√≥b podobny do arkuszy kalkulacyjnych. Tabelƒô mo≈ºna przewijaƒá
+i poddawaƒá edycji. Ka≈ºde pole zazwyczaj wy≈õwietla tekst, ale mo≈ºe
+tak≈ºe bitmapƒô (bez mo≈ºliwo≈õci edycji).
 
 %package devel
 Summary:	XbaeMatrix header files and development documentation
-Summary(pl):	Pliki nag≥Ûwkowe i dokumentacja XbaeMatrix
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe i dokumentacja XbaeMatrix
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	motif-devel >= 2.0
@@ -42,19 +42,19 @@ Requires:	motif-devel >= 2.0
 %description devel
 XbaeMatrix header files and development documentation.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe i dokumentacja programisty do XbaeMatrix.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe i dokumentacja programisty do XbaeMatrix.
 
 %package static
 Summary:	XbaeMatrix static library
-Summary(pl):	Biblioteki statyczne XbaeMatrix
+Summary(pl.UTF-8):   Biblioteki statyczne XbaeMatrix
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 XbaeMatrix static library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Biblioteki statyczne XbaeMatrix.
 
 %prep
