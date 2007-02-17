@@ -8,6 +8,7 @@ License:	BSD-like (Bell Communications Research)
 Group:		X11/Libraries
 Source0:	http://dl.sourceforge.net/xbae/%{_truename}-%{version}.tar.gz
 # Source0-md5:	9690059474bb05191dccd041ff5052bd
+Patch0:		%{name}-ac.patch
 URL:		http://xbae.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -58,6 +59,7 @@ Biblioteki statyczne XbaeMatrix.
 
 %prep
 %setup -q -n %{_truename}-%{version}
+%patch0 -p1
 
 %build
 %{__libtoolize}
@@ -100,6 +102,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc doc/*
 %attr(755,root,root) %{_libdir}/libXbae.so
+%{_libdir}/libXbae.la
 %{_includedir}/Xbae
 %{_aclocaldir}/ac_find_xbae.m4
 %{_mandir}/man3/*
