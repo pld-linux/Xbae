@@ -1,15 +1,14 @@
+%define		_truename xbae
 Summary:	The XbaeMatrix is a Motif-based widget which displays a grid of cells
 Summary(pl.UTF-8):	XbaeMatrix jest motifowym widgetem wyświetlającym tabelki
 Name:		Xbae
-Version:	4.50.97
+Version:	4.60.4
 Release:	1
 License:	BSD-like (Bell Communications Research)
 Group:		X11/Libraries
-Source0:	http://dl.sourceforge.net/xbae/%{name}-%{version}.tar.gz
-# Source0-md5:	f5518adff4cf031fd429c7f47bc0b49d
-Patch0:		%{name}-link.patch
+Source0:	http://dl.sourceforge.net/%{_truename}/%{_truename}-%{version}.tar.gz
+# Source0-md5:	9690059474bb05191dccd041ff5052bd
 URL:		http://xbae.sourceforge.net/
-BuildRequires:	%{_aclocaldir}/ac_find_motif.m4
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
@@ -27,10 +26,10 @@ XmTextField. This means a big performance improvement due to less
 overhead.
 
 %description -l pl.UTF-8
-XbaeMatrix jest motifowym widgetem wyświetlającym tabelki złożone z
-pól w sposób podobny do arkuszy kalkulacyjnych. Tabelę można przewijać
-i poddawać edycji. Każde pole zazwyczaj wyświetla tekst, ale może
-także bitmapę (bez możliwości edycji).
+XbaeMatrix jest motifowym widgetem wyświetlającym tabelki złożone
+z pól w sposób podobny do arkuszy kalkulacyjnych. Tabelę można
+przewijać i poddawać edycji. Każde pole zazwyczaj wyświetla tekst,
+ale może także bitmapę (bez możliwości edycji).
 
 %package devel
 Summary:	XbaeMatrix header files and development documentation
@@ -58,8 +57,7 @@ XbaeMatrix static library.
 Biblioteki statyczne XbaeMatrix.
 
 %prep
-%setup -q
-%patch0 -p1
+%setup -q -n %{_truename}-%{version}
 
 %build
 %{__libtoolize}
@@ -69,8 +67,7 @@ Biblioteki statyczne XbaeMatrix.
 %configure \
 	--enable-shared \
 	--enable-static \
-	--with-editres \
-	--with-x-includes=/usr/X11R6/include
+	--with-editres
 
 %{__make}
 
@@ -97,12 +94,12 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS COPYING ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/libXbae.so.*.*
+%{_datadir}/Xbae
 
 %files devel
 %defattr(644,root,root,755)
 %doc doc/*
 %attr(755,root,root) %{_libdir}/libXbae.so
-%{_libdir}/libXbae.la
 %{_includedir}/Xbae
 %{_aclocaldir}/ac_find_xbae.m4
 %{_mandir}/man3/*
