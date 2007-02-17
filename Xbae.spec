@@ -6,7 +6,7 @@ Version:	4.60.4
 Release:	1
 License:	BSD-like (Bell Communications Research)
 Group:		X11/Libraries
-Source0:	http://dl.sourceforge.net/%{_truename}/%{_truename}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/xbae/%{_truename}-%{version}.tar.gz
 # Source0-md5:	9690059474bb05191dccd041ff5052bd
 URL:		http://xbae.sourceforge.net/
 BuildRequires:	autoconf
@@ -26,10 +26,10 @@ XmTextField. This means a big performance improvement due to less
 overhead.
 
 %description -l pl.UTF-8
-XbaeMatrix jest motifowym widgetem wyświetlającym tabelki złożone
-z pól w sposób podobny do arkuszy kalkulacyjnych. Tabelę można
-przewijać i poddawać edycji. Każde pole zazwyczaj wyświetla tekst,
-ale może także bitmapę (bez możliwości edycji).
+XbaeMatrix jest motifowym widgetem wyświetlającym tabelki złożone z
+pól w sposób podobny do arkuszy kalkulacyjnych. Tabelę można przewijać
+i poddawać edycji. Każde pole zazwyczaj wyświetla tekst, ale może
+także bitmapę (bez możliwości edycji).
 
 %package devel
 Summary:	XbaeMatrix header files and development documentation
