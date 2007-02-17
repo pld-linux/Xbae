@@ -1,0 +1,11 @@
+--- xbae-4.60.4/acinclude.m4.orig	2004-02-02 21:20:03.000000000 +0100
++++ xbae-4.60.4/acinclude.m4	2007-02-17 17:01:56.835812809 +0100
+@@ -285,7 +285,7 @@
+ AC_PATH_PROG(man2html_cmd, man2html)
+ if test -x "$man2html_cmd"
+ then
+-  if test -z "`$man2html_cmd </dev/null 2>&1 | grep \"LessTif's man2html\"`"
++  if test -z "$($man2html_cmd </dev/null 2>&1 | grep "LessTif's man2html")"
+   then
+      dnl found wrong one
+      MAN2HTML="\$(top_builddir)/scripts/man2html"
