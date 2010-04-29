@@ -1,0 +1,11 @@
+--- xbae-4.60.4/doc/images/Makefile.am.orig	2004-11-04 15:47:31.000000000 +0100
++++ xbae-4.60.4/doc/images/Makefile.am	2010-04-29 08:14:40.564988896 +0200
+@@ -34,7 +34,7 @@
+ 	bg.png updated.png coverplus.png add.jpg \
+ 	caption.png choice.png colors.jpg draw.png fifteen.jpg \
+ 	input.png list.jpg matrix.jpg multifixed.jpg select-push.jpg \
+-	mailbox.png bg.png pricing.jpg LDO.jpg risk.jpg \
++	mailbox.png pricing.jpg LDO.jpg risk.jpg \
+ 	organize.jpg xbasket.png xbum1-2.png xbill2-2.png capfloor1.png \
+ 	capfloor3.png taam.png \
+ 	grohtml-XbaeCaption1.png \
