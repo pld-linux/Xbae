@@ -86,7 +86,7 @@ install -d $RPM_BUILD_ROOT%{_aclocaldir}
 	mandir=%{_mandir}
 
 # workaround - configure decides not to install *.m4 if aclocaldir is not writable
-install ac_find_*.m4 $RPM_BUILD_ROOT%{_aclocaldir}
+install ac_find_xbae.m4 $RPM_BUILD_ROOT%{_aclocaldir}
 
 rm -f doc/Makefile* doc/images/Makefile*
 
