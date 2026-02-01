@@ -3,14 +3,14 @@ Summary:	The XbaeMatrix is a Motif-based widget which displays a grid of cells
 Summary(pl.UTF-8):	XbaeMatrix jest motifowym widgetem wyświetlającym tabelki
 Name:		Xbae
 Version:	4.60.4
-Release:	6
+Release:	7
 License:	BSD-like (Bell Communications Research)
 Group:		X11/Libraries
-Source0:	http://downloads.sourceforge.net/xbae/%{srcname}-%{version}.tar.gz
+Source0:	https://downloads.sourceforge.net/xbae/%{srcname}-%{version}.tar.gz
 # Source0-md5:	9690059474bb05191dccd041ff5052bd
 Patch0:		%{name}-ac.patch
 Patch1:		%{name}-am.patch
-URL:		http://xbae.sourceforge.net/
+URL:		https://xbae.sourceforge.net/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	libtool
@@ -62,8 +62,8 @@ Biblioteka statyczna XbaeMatrix.
 
 %prep
 %setup -q -n %{srcname}-%{version}
-%patch0 -p1
-%patch1 -p1
+%patch -P0 -p1
+%patch -P1 -p1
 
 %build
 %{__libtoolize}
@@ -88,7 +88,7 @@ install -d $RPM_BUILD_ROOT%{_aclocaldir}
 # workaround - configure decides not to install *.m4 if aclocaldir is not writable
 install ac_find_xbae.m4 $RPM_BUILD_ROOT%{_aclocaldir}
 
-rm -f doc/Makefile* doc/images/Makefile*
+%{__rm} doc/Makefile* doc/images/Makefile*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -99,14 +99,14 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS COPYING ChangeLog NEWS README
-%attr(755,root,root) %{_libdir}/libXbae.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libXbae.so.4
+%{_libdir}/libXbae.so.*.*.*
+%ghost %{_libdir}/libXbae.so.4
 %{_datadir}/Xbae
 
 %files devel
 %defattr(644,root,root,755)
 %doc doc/*
-%attr(755,root,root) %{_libdir}/libXbae.so
+%{_libdir}/libXbae.so
 %{_libdir}/libXbae.la
 %{_includedir}/Xbae
 %{_aclocaldir}/ac_find_xbae.m4
