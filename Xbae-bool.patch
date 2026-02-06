@@ -1,0 +1,132 @@
+--- xbae-4.60.4/examples/input/input.c.orig	2001-03-30 09:52:02.000000000 +0200
++++ xbae-4.60.4/examples/input/input.c	2026-02-06 19:32:04.949832965 +0100
+@@ -126,7 +126,7 @@ main(int argc, char *argv[])
+ {
+     Widget toplevel, rc, pattern, cw, radio, frame;
+     XtAppContext app;
+-    XmString true, false, begin, centre, end;
++    XmString true_, false_, begin, centre, end;
+ 
+     toplevel = XtVaAppInitialize(&app, "Input",
+ 				 NULL, 0,
+@@ -160,8 +160,8 @@ main(int argc, char *argv[])
+ 
+     XtAddCallback(input, XmNvalidateCallback, validateCB, NULL);
+ 
+-    true = XmStringCreateSimple("True");
+-    false = XmStringCreateSimple("False");
++    true_ = XmStringCreateSimple("True");
++    false_ = XmStringCreateSimple("False");
+ 
+     cw = XtVaCreateManagedWidget(
+ 	"XmNautofill", xbaeCaptionWidgetClass, rc,
+@@ -173,8 +173,8 @@ main(int argc, char *argv[])
+ 
+     radio = XmVaCreateSimpleRadioBox(
+ 	frame, "XmNautoFill", 0, autoFillToggle,
+-	XmVaRADIOBUTTON, false, NULL, NULL, NULL,
+-	XmVaRADIOBUTTON, true, NULL, NULL, NULL,
++	XmVaRADIOBUTTON, false_, NULL, NULL, NULL,
++	XmVaRADIOBUTTON, true_, NULL, NULL, NULL,
+ 	NULL);
+ 
+     XtVaSetValues(radio, XmNtraversalOn, False, NULL);
+@@ -191,8 +191,8 @@ main(int argc, char *argv[])
+ 
+     radio = XmVaCreateSimpleRadioBox(
+ 	frame, "XmNconvertCase", 1, convertCaseToggle,
+-	XmVaRADIOBUTTON, false, NULL, NULL, NULL,
+-	XmVaRADIOBUTTON, true, NULL, NULL, NULL,
++	XmVaRADIOBUTTON, false_, NULL, NULL, NULL,
++	XmVaRADIOBUTTON, true_, NULL, NULL, NULL,
+ 	NULL);
+ 
+     XtVaSetValues(radio, XmNtraversalOn, False, NULL);
+@@ -224,8 +224,8 @@ main(int argc, char *argv[])
+ 
+     radio = XmVaCreateSimpleRadioBox(
+ 	frame, "XmNoverwriteMode", 0, overwriteModeToggle,
+-	XmVaRADIOBUTTON, false, NULL, NULL, NULL,
+-	XmVaRADIOBUTTON, true, NULL, NULL, NULL,
++	XmVaRADIOBUTTON, false_, NULL, NULL, NULL,
++	XmVaRADIOBUTTON, true_, NULL, NULL, NULL,
+ 	NULL);
+ 
+     XtVaSetValues(radio, XmNtraversalOn, False, NULL);
+@@ -254,8 +254,8 @@ main(int argc, char *argv[])
+ 
+     XtManageChild(radio);
+ 
+-    XmStringFree(true);
+-    XmStringFree(false);
++    XmStringFree(true_);
++    XmStringFree(false_);
+     XmStringFree(begin);
+     XmStringFree(centre);
+     XmStringFree(end);
+--- xbae-4.60.4/examples/input/pattern.c.orig	2003-10-20 21:12:46.000000000 +0200
++++ xbae-4.60.4/examples/input/pattern.c	2026-02-06 19:32:51.633417756 +0100
+@@ -128,7 +128,7 @@ main(int argc, char *argv[])
+ {
+     Widget toplevel, rc, pattern, cw, radio, frame;
+     XtAppContext app;
+-    XmString true, false, begin, centre, end;
++    XmString true_, false_, begin, centre, end;
+ 
+     toplevel = XtVaAppInitialize(&app, "Input",
+ 				 NULL, 0,
+@@ -167,8 +167,8 @@ main(int argc, char *argv[])
+ 		XmNoverwriteMode,	False,
+ 		NULL);
+ 
+-    true = XmStringCreateSimple("True");
+-    false = XmStringCreateSimple("False");
++    true_ = XmStringCreateSimple("True");
++    false_ = XmStringCreateSimple("False");
+ 
+     cw = XtVaCreateManagedWidget(
+ 	"XmNautofill", xbaeCaptionWidgetClass, rc,
+@@ -180,8 +180,8 @@ main(int argc, char *argv[])
+ 
+     radio = XmVaCreateSimpleRadioBox(
+ 	frame, "XmNautoFill", 0, autoFillToggle,
+-	XmVaRADIOBUTTON, false, NULL, NULL, NULL,
+-	XmVaRADIOBUTTON, true, NULL, NULL, NULL,
++	XmVaRADIOBUTTON, false_, NULL, NULL, NULL,
++	XmVaRADIOBUTTON, true_, NULL, NULL, NULL,
+ 	NULL);
+ 
+     XtVaSetValues(radio, XmNtraversalOn, False, NULL);
+@@ -198,8 +198,8 @@ main(int argc, char *argv[])
+ 
+     radio = XmVaCreateSimpleRadioBox(
+ 	frame, "XmNconvertCase", 1, convertCaseToggle,
+-	XmVaRADIOBUTTON, false, NULL, NULL, NULL,
+-	XmVaRADIOBUTTON, true, NULL, NULL, NULL,
++	XmVaRADIOBUTTON, false_, NULL, NULL, NULL,
++	XmVaRADIOBUTTON, true_, NULL, NULL, NULL,
+ 	NULL);
+ 
+     XtVaSetValues(radio, XmNtraversalOn, False, NULL);
+@@ -231,8 +231,8 @@ main(int argc, char *argv[])
+ 
+     radio = XmVaCreateSimpleRadioBox(
+ 	frame, "XmNoverwriteMode", 0, overwriteModeToggle,
+-	XmVaRADIOBUTTON, false, NULL, NULL, NULL,
+-	XmVaRADIOBUTTON, true, NULL, NULL, NULL,
++	XmVaRADIOBUTTON, false_, NULL, NULL, NULL,
++	XmVaRADIOBUTTON, true_, NULL, NULL, NULL,
+ 	NULL);
+ 
+     XtVaSetValues(radio, XmNtraversalOn, False, NULL);
+@@ -261,8 +261,8 @@ main(int argc, char *argv[])
+ 
+     XtManageChild(radio);
+ 
+-    XmStringFree(true);
+-    XmStringFree(false);
++    XmStringFree(true_);
++    XmStringFree(false_);
+     XmStringFree(begin);
+     XmStringFree(centre);
+     XmStringFree(end);

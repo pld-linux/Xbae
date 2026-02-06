@@ -1,0 +1,22 @@
+--- xbae-4.60.4/src/Methods.c.orig	2006-05-26 10:57:25.000000000 +0200
++++ xbae-4.60.4/src/Methods.c	2026-02-06 19:30:05.429189170 +0100
+@@ -1688,7 +1688,7 @@ DoEditCell(XbaeMatrixWidget mw, XEvent *
+                                          * The event must have occurred in a legal position
+                                          * otherwise control wouldn't have made it here
+                                          */
+-                                        xbaeEventToRowColumn(mw, event, &r, &c, &x, &y);
++                                        xbaeEventToRowColumn((Widget)mw, event, &r, &c, &x, &y);
+                                         x -= mw->matrix.cell_shadow_thickness;
+                                         y -= mw->matrix.cell_shadow_thickness;
+                                         position = XmTextXYToPos(TextField(mw), x, y);
+--- xbae-4.60.4/examples/tests/leak2.c.orig	2003-06-21 11:38:46.000000000 +0200
++++ xbae-4.60.4/examples/tests/leak2.c	2026-02-06 19:34:26.933931089 +0100
+@@ -20,7 +20,7 @@ AppRes	appres;
+ 
+ XtResource	resources[] = {
+ 	{ "numIter", "NumIter", XtRInt, sizeof(int),
+-		XtOffsetOf(AppRes, numIter), XtRImmediate, 1000 },
++		XtOffsetOf(AppRes, numIter), XtRImmediate, (XtPointer)1000 },
+ };
+ 
+ int

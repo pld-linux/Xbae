@@ -10,6 +10,8 @@ Source0:	https://downloads.sourceforge.net/xbae/%{srcname}-%{version}.tar.gz
 # Source0-md5:	9690059474bb05191dccd041ff5052bd
 Patch0:		%{name}-ac.patch
 Patch1:		%{name}-am.patch
+Patch2:		%{name}-types.patch
+Patch3:		%{name}-bool.patch
 URL:		https://xbae.sourceforge.net/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -64,6 +66,8 @@ Biblioteka statyczna XbaeMatrix.
 %setup -q -n %{srcname}-%{version}
 %patch -P0 -p1
 %patch -P1 -p1
+%patch -P2 -p1
+%patch -P3 -p1
 
 %build
 %{__libtoolize}
@@ -86,7 +90,7 @@ install -d $RPM_BUILD_ROOT%{_aclocaldir}
 	mandir=%{_mandir}
 
 # workaround - configure decides not to install *.m4 if aclocaldir is not writable
-install ac_find_xbae.m4 $RPM_BUILD_ROOT%{_aclocaldir}
+cp -p ac_find_xbae.m4 $RPM_BUILD_ROOT%{_aclocaldir}
 
 %{__rm} doc/Makefile* doc/images/Makefile*
 
